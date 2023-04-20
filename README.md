@@ -8,4 +8,4 @@ Flags: -i, -j\
 -j: Generate .json file
 
 
-example: ./arcdps -j <logname>
+example: ./arcdps -j logname
