@@ -329,7 +329,12 @@ const void generateJsonFile(const Header& header, const std::vector<Agent>& agen
     ss << "\"Combat Events\":" << combatEventsJson(cbtevts);
     ss << "}";
 
-    std::string jsonfile = filename.substr(0, filename.length() - 5);
+    std::string jsonfile;
+    if(logIsZipped(filename.c_str())){
+        jsonfile = filename.substr(0, filename.length() - 6);
+    } else {
+            jsonfile = filename.substr(0, filename.length() - 5);
+    }
     jsonfile += ".json";
     std::ofstream file(jsonfile);
     file << ss.str();
